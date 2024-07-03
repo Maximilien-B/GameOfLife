@@ -20,13 +20,30 @@ jobs:
       - name: build
         run: yarn run build
         env:
-          BASE_PATH: /game-of-life/
+          BASE_PATH: '/${{ github.event.repository.name }}'
 
       - name: create .nojekyll
         run: touch .output/public/.nojekyll
 
-      - name: deploy pages
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: .output/public
+           path: '.output/'
+
+
+  deploy:
+    needs: build_site
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
