@@ -6,7 +6,7 @@ import "./app.css";
 
 export default function App() {
     return <Router
-        base={import.meta.server ? "/game-of-life" : "/"}
+        base={import.meta.env.SERVER_BASE_URL}
         root={props => <MetaProvider>
             <Title>SolidStart - Basic</Title>
             <a href="/">Index</a>

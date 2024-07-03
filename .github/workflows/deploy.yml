@@ -20,7 +20,7 @@ jobs:
       - name: build
         run: yarn run build
         env:
-          BASE_PATH: '/game-of-life'
+          NITRO_PRESET: github_pages
 
       - name: create .nojekyll
         run: touch .output/public/.nojekyll
