@@ -20,7 +20,7 @@ jobs:
       - name: build
         run: yarn run build
         env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          BASE_PATH: '/game-of-life'
 
       - name: create .nojekyll
         run: touch .output/public/.nojekyll
