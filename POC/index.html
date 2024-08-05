@@ -14,6 +14,18 @@
 </body>
     <div class="content">
         <canvas id="grid"></canvas>
-        <div class="control_panel"></div>
+        <div class="control_panel">
+            <label for="myRange"></label>
+            <input type="range" min="2" max="100" value="50" class="slider" id="myRange">
+            <p>Size: <span id="demo"></span></p>
+            <label for="r_color"></label>
+            <input type="range" min="0" max="255" value="255" class="slider color_slider" id="r_color">
+            <label for="g_color"></label>
+            <input type="range" min="0" max="255" value="255" class="slider color_slider" id="g_color">
+            <label for="b_color"></label>
+            <input type="range" min="0" max="255" value="255" class="slider color_slider" id="b_color">
+            <p>Current Color: </p>
+            <div id="color"></div>
+        </div>
     </div>
 </html>
